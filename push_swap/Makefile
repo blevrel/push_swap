@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2022/06/04 11:40:55 by blevrel          ###   ########.fr        #
+#    Updated: 2022/06/06 15:44:35 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =	srcs/push_swap.c srcs/check_errors.c srcs/init_stack.c srcs/sorting_funct
 		srcs/sort_list.c srcs/is_sorted.c srcs/print_list_manipulation.c \
 		srcs/sort_big_list.c
 
-OBJS = ${SRCS:.c=.o)
+OBJS = ${SRCS:.c=.o}
 
 CC = gcc
 
@@ -41,6 +41,9 @@ fclean: clean
 
 re: fclean all
 
-${NAME}:
+.c.o:
+	${CC} ${FLAGS} -c ${HEAD} $< -o ${<:.c=.o}
+
+${NAME}: ${OBJS}
 	make -C libft
-	${CC} ${FLAGS} ${SRCS} ${HEAD} ${LIB} -o ${NAME} -g
+	${CC} ${FLAGS} ${OBJS} ${HEAD} ${LIB} -o ${NAME} -g

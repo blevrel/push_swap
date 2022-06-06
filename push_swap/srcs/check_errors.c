@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:53:55 by blevrel           #+#    #+#             */
-/*   Updated: 2022/05/26 13:17:44 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/06 11:57:17 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -25,7 +25,8 @@ int	ft_str_is_numeric(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == '-' && (str[i + 1] > '0' && str[i] < '9'))
+		if ((str[i] == '-' && (str[i + 1] > '0' && str[i] < '9')
+				&& (str[0] == '-')))
 		{
 			i++;
 			continue ;

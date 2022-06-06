@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 09:20:01 by blevrel           #+#    #+#             */
-/*   Updated: 2022/05/29 12:15:01 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/06 14:30:45 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -18,6 +18,8 @@ char	**verify_args(char **list, int trigger)
 	int			size;
 
 	i = 0;
+	if (!list || !*list)
+		return (free_list_if_error(list, NULL, 1));
 	while (list[i])
 		i++;
 	size = i;
@@ -48,17 +50,17 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	if (argv[1][0] == '\0')
-		ft_printf("Error\n");
+		return (ft_printf("Error\n"));
 	if (argc > 2)
 		list = verify_args(&argv[1], 0);
-	else if (ft_strlen(argv[1]) > 2)
+	else
 		list = verify_args(ft_split(argv[1], ' '), 1);
 	if (list == NULL)
 		return (free_list(list));
 	while (list[size])
 		size++;
 	if (size == 1)
-		return (0);
+		return (free_list(list));
 	init_stack(list, size);
 	if (argc == 2)
 		return (free_list(list));
@@ -80,7 +82,8 @@ void	*free_list_if_error(char **list, long long *tab, int trigger)
 		free(list);
 	}
 	ft_printf("Error\n");
-	free(tab);
+	if (tab)
+		free(tab);
 	return (NULL);
 }
 

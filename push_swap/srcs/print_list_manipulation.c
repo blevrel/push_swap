@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:48:09 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/04 12:42:57 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/06 11:29:14 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -60,6 +60,22 @@ void	display_print_list(t_print_list **print_list)
 			free(temp_next);
 			continue ;
 		}
+		ft_printf("%s\n", (*print_list)->content);
+		temp = *print_list;
+		*print_list = (*print_list)->next;
+		free(temp);
+	}
+}
+
+void	display_small_print_list(t_print_list **print_list)
+{
+	t_print_list	*temp;
+
+	temp = *print_list;
+	*print_list = (*print_list)->next;
+	free(temp);
+	while (*print_list)
+	{
 		ft_printf("%s\n", (*print_list)->content);
 		temp = *print_list;
 		*print_list = (*print_list)->next;

@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 08:52:57 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/05 17:48:39 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/06 11:34:37 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -55,6 +55,7 @@ int				ft_sizelst(t_stack *stack);
 t_print_list	*ft_newlist_print(char *content);
 void			ft_addback_print_lst(t_print_list **lst, t_print_list *new);
 void			display_print_list(t_print_list **print_list);
+void			display_small_print_list(t_print_list **print_list);
 
 //sort_list.c
 void			ft_get_size(t_stack **stack);
@@ -77,6 +78,7 @@ void			push_a(t_stack **stack_a, t_stack **stack_b,
 					t_print_list **print_list);
 void			push_b(t_stack **stack_a, t_stack **stack_b,
 					t_print_list **print_list);
+void			sort_three(t_stack **stack);
 
 //sorting_functions_2.c
 void			rotate_a(t_stack **stack, t_print_list **print_list);

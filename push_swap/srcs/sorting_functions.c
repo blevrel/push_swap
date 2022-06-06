@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:40:52 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/04 12:40:42 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/06 15:32:46 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -77,4 +77,33 @@ void	push_b(t_stack **stack_a, t_stack **stack_b, t_print_list **print_list)
 		ft_get_size(stack_b);
 		ft_addback_print_lst(print_list, elem);
 	}
+}
+
+void	sort_three(t_stack **stack)
+{
+	t_print_list	*print_list;
+
+	print_list = ft_newlist_print(NULL);
+	if (((*stack)->content > (*stack)->next->content)
+		&& (*stack)->next->next->content > (*stack)->content)
+		swap_a(stack, &print_list);
+	else if (((*stack)->content > (*stack)->next->content)
+		&& ((*stack)->next->content > (*stack)->next->next->content))
+	{		
+		swap_a(stack, &print_list);
+		reverse_rotate_a(stack, &print_list);
+	}
+	else if (((*stack)->content > (*stack)->next->content)
+		&& ((*stack)->next->content < (*stack)->next->next->content))
+		rotate_a(stack, &print_list);
+	else if (((*stack)->content < (*stack)->next->content)
+		&& ((*stack)->content < (*stack)->next->next->content))
+	{
+		swap_a(stack, &print_list);
+		rotate_a(stack, &print_list);
+	}
+	else if (((*stack)->content < (*stack)->next->content)
+		&& ((*stack)->content > (*stack)->next->next->content))
+		reverse_rotate_a(stack, &print_list);
+	display_small_print_list(&print_list);
 }

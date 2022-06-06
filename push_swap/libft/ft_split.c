@@ -6,12 +6,11 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 14:46:26 by blevrel           #+#    #+#             */
-/*   Updated: 2022/04/11 13:38:04 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/06 14:13:27 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 static void	*ft_calloc_loc(size_t nmemb, size_t size)
 {
@@ -104,7 +103,7 @@ static char	**fill_tab(char const *s, char sep, char **res)
 			i++;
 		else if (s[i] != sep)
 		{
-			while (s[i != sep] && res[k][j])
+			while (s[i] != sep && res[k][j])
 			{
 				res[k][j] = s[i];
 				i++;
@@ -117,14 +116,14 @@ static char	**fill_tab(char const *s, char sep, char **res)
 	return (res);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**res;
 
 	if (count_malloc(s, c) == 0)
 	{
 		res = malloc(sizeof(char *));
-		res[0] = 0;
+		res[0] = NULL;
 		return (res);
 	}
 	res = ft_calloc_loc(count_malloc(s, c) + 1, sizeof(char *));
