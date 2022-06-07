@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2022/06/06 15:44:35 by blevrel          ###   ########.fr        #
+#    Updated: 2022/06/07 11:56:49 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ all: ${NAME}
 
 clean:
 	make clean -C libft
-	${RM}
+	${RM} ${OBJS}
 
 fclean: clean
 	make fclean -C libft
